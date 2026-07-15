@@ -148,6 +148,7 @@
     <ClCompile Include="SampleGenerator.cpp" />
     <ClCompile Include="OrderGenerator.cpp" />
     <ClCompile Include="OrderStatus.cpp" />
+    <ClCompile Include="IdAllocator.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="DummySample.h" />
@@ -155,6 +156,7 @@
     <ClInclude Include="DummyOrder.h" />
     <ClInclude Include="OrderGenerator.h" />
     <ClInclude Include="OrderStatus.h" />
+    <ClInclude Include="IdAllocator.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

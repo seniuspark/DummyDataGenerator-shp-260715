@@ -76,6 +76,7 @@
   <ItemGroup>
     <ClCompile Include="SampleGeneratorTest.cpp" />
     <ClCompile Include="OrderGeneratorTest.cpp" />
+    <ClCompile Include="IdAllocatorTest.cpp" />
     <ClCompile Include="..\Project1\SampleGenerator.cpp">
       <ObjectFileName>$(IntDir)Project1_SampleGenerator.obj</ObjectFileName>
     </ClCompile>
@@ -84,6 +85,9 @@
     </ClCompile>
     <ClCompile Include="..\Project1\OrderStatus.cpp">
       <ObjectFileName>$(IntDir)Project1_OrderStatus.obj</ObjectFileName>
+    </ClCompile>
+    <ClCompile Include="..\Project1\IdAllocator.cpp">
+      <ObjectFileName>$(IntDir)Project1_IdAllocator.obj</ObjectFileName>
     </ClCompile>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
