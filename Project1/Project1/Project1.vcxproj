@@ -143,7 +143,14 @@
     </Manifest>
   </ItemDefinitionGroup>
 
-  <ItemGroup></ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="main.cpp" />
+    <ClCompile Include="SampleGenerator.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="DummySample.h" />
+    <ClInclude Include="SampleGenerator.h" />
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>
