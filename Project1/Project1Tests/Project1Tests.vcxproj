@@ -75,6 +75,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="SampleGeneratorTest.cpp" />
+    <ClCompile Include="OrderGeneratorTest.cpp" />
     <ClCompile Include="..\Project1\SampleGenerator.cpp">
       <ObjectFileName>$(IntDir)Project1_SampleGenerator.obj</ObjectFileName>
     </ClCompile>
