@@ -79,6 +79,12 @@
     <ClCompile Include="..\Project1\SampleGenerator.cpp">
       <ObjectFileName>$(IntDir)Project1_SampleGenerator.obj</ObjectFileName>
     </ClCompile>
+    <ClCompile Include="..\Project1\OrderGenerator.cpp">
+      <ObjectFileName>$(IntDir)Project1_OrderGenerator.obj</ObjectFileName>
+    </ClCompile>
+    <ClCompile Include="..\Project1\OrderStatus.cpp">
+      <ObjectFileName>$(IntDir)Project1_OrderStatus.obj</ObjectFileName>
+    </ClCompile>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

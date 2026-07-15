@@ -146,10 +146,15 @@
   <ItemGroup>
     <ClCompile Include="main.cpp" />
     <ClCompile Include="SampleGenerator.cpp" />
+    <ClCompile Include="OrderGenerator.cpp" />
+    <ClCompile Include="OrderStatus.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="DummySample.h" />
     <ClInclude Include="SampleGenerator.h" />
+    <ClInclude Include="DummyOrder.h" />
+    <ClInclude Include="OrderGenerator.h" />
+    <ClInclude Include="OrderStatus.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
