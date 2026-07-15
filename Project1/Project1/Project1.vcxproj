@@ -149,6 +149,8 @@
     <ClCompile Include="OrderGenerator.cpp" />
     <ClCompile Include="OrderStatus.cpp" />
     <ClCompile Include="IdAllocator.cpp" />
+    <ClCompile Include="JsonIo.cpp" />
+    <ClCompile Include="DummyDataAppender.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="DummySample.h" />
@@ -157,8 +159,20 @@
     <ClInclude Include="OrderGenerator.h" />
     <ClInclude Include="OrderStatus.h" />
     <ClInclude Include="IdAllocator.h" />
+    <ClInclude Include="JsonIo.h" />
+    <ClInclude Include="DummyDataAppender.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
+    <Import Project="..\packages\nlohmann.json.3.11.3\build\native\nlohmann.json.targets" Condition="Exists('..\packages\nlohmann.json.3.11.3\build\native\nlohmann.json.targets')" />
   </ImportGroup>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>이 프로젝트는 이 컴퓨터에 없는 NuGet 패키지를 참조합니다. nuget.exe restore로 다운로드하세요. 자세한 내용은 http://go.microsoft.com/fwlink/?LinkID=322105 을 참조하세요. 누락된 파일은 {0}입니다.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\nlohmann.json.3.11.3\build\native\nlohmann.json.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\nlohmann.json.3.11.3\build\native\nlohmann.json.targets'))" />
+  </Target>
 </Project>

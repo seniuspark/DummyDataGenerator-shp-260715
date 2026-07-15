@@ -77,6 +77,8 @@
     <ClCompile Include="SampleGeneratorTest.cpp" />
     <ClCompile Include="OrderGeneratorTest.cpp" />
     <ClCompile Include="IdAllocatorTest.cpp" />
+    <ClCompile Include="DummyDataAppenderTest.cpp" />
+    <ClCompile Include="JsonIoTest.cpp" />
     <ClCompile Include="..\Project1\SampleGenerator.cpp">
       <ObjectFileName>$(IntDir)Project1_SampleGenerator.obj</ObjectFileName>
     </ClCompile>
@@ -89,15 +91,23 @@
     <ClCompile Include="..\Project1\IdAllocator.cpp">
       <ObjectFileName>$(IntDir)Project1_IdAllocator.obj</ObjectFileName>
     </ClCompile>
+    <ClCompile Include="..\Project1\JsonIo.cpp">
+      <ObjectFileName>$(IntDir)Project1_JsonIo.obj</ObjectFileName>
+    </ClCompile>
+    <ClCompile Include="..\Project1\DummyDataAppender.cpp">
+      <ObjectFileName>$(IntDir)Project1_DummyDataAppender.obj</ObjectFileName>
+    </ClCompile>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
     <Import Project="..\packages\Microsoft.googletest.v140.windesktop.msvcstl.dyn.rt-dyn.1.8.1.8\build\native\Microsoft.googletest.v140.windesktop.msvcstl.dyn.rt-dyn.targets" Condition="Exists('..\packages\Microsoft.googletest.v140.windesktop.msvcstl.dyn.rt-dyn.1.8.1.8\build\native\Microsoft.googletest.v140.windesktop.msvcstl.dyn.rt-dyn.targets')" />
+    <Import Project="..\packages\nlohmann.json.3.11.3\build\native\nlohmann.json.targets" Condition="Exists('..\packages\nlohmann.json.3.11.3\build\native\nlohmann.json.targets')" />
   </ImportGroup>
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>
       <ErrorText>이 프로젝트는 NuGet 패키지가 없습니다. nuget.exe restore를 먼저 실행하세요. 누락된 파일: {0}</ErrorText>
     </PropertyGroup>
     <Error Condition="!Exists('..\packages\Microsoft.googletest.v140.windesktop.msvcstl.dyn.rt-dyn.1.8.1.8\build\native\Microsoft.googletest.v140.windesktop.msvcstl.dyn.rt-dyn.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.googletest.v140.windesktop.msvcstl.dyn.rt-dyn.1.8.1.8\build\native\Microsoft.googletest.v140.windesktop.msvcstl.dyn.rt-dyn.targets'))" />
+    <Error Condition="!Exists('..\packages\nlohmann.json.3.11.3\build\native\nlohmann.json.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\nlohmann.json.3.11.3\build\native\nlohmann.json.targets'))" />
   </Target>
 </Project>
