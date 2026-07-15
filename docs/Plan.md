@@ -76,3 +76,60 @@ Phase 1 (Sample 생성) ──► Phase 2 (Order 생성)
 - 도메인 제약은 상위 `../../CLAUDE.md`의 값을 그대로 따른다(Yield 0.0 초과 1.0
   이하, AvgProductionTime 양수, 주문 상태 5종 등).
 - 기능 단위로 작게 커밋한다.
+
+## PoC 완료 요약 (Phase 0~5, 2026-07-15)
+
+Phase 0~5 전 단계가 TDD(Red → Green → Refactor)로 완료됐다. gtest 50건이
+모두 통과한다(`Project1Tests.exe`).
+
+| Phase | 산출물 | 테스트 |
+|---|---|---|
+| 0 | `docs/phase0-schema-assumption.md` (Json/ 스키마 가정 고정) | - |
+| 1 | `DummySample.h`, `SampleGenerator.h/.cpp` | `SampleGeneratorTest.cpp` |
+| 2 | `DummyOrder.h`, `OrderStatus.h/.cpp`, `OrderGenerator.h/.cpp` | `OrderGeneratorTest.cpp` |
+| 3 | `IdAllocator.h/.cpp` | `IdAllocatorTest.cpp` |
+| 4 | `JsonIo.h/.cpp`, `DummyDataAppender.h/.cpp` | `JsonIoTest.cpp`, `DummyDataAppenderTest.cpp` |
+| 5 | `CliOptions.h`, `CliParser.h/.cpp`, `DummyGenerationRunner.h/.cpp`, `main.cpp` | `CliParserTest.cpp`, `DummyGenerationRunnerTest.cpp` |
+
+### Phase 5 콘솔 CLI 사용법
+
+```
+Project1.exe [--samples N] [--orders N] [--clear] [--data-dir PATH]
+```
+
+- 옵션이 전혀 없으면 `samples=5`, `orders=5`, `data-dir=data`, append 모드로
+  실행된다(인자 없이 실행해도 기본 동작은 append).
+- `--samples`/`--orders`는 0 이상의 정수만 허용하며, 그렇지 않으면
+  `--samples must be a non-negative integer, got '...'` 형태의 에러 메시지를
+  출력하고 종료코드 1을 반환한다(파일은 변경되지 않는다).
+- `--clear`가 있을 때만 기존 `samples.json`/`orders.json`을 버리고 새로
+  생성한다. `--clear`가 없으면 항상 append.
+- `--data-dir`로 지정한 디렉토리 하위의 `samples.json`, `orders.json`을
+  읽고 쓴다(디렉토리가 없으면 생성).
+
+### 수동 스모크 테스트 결과 (2026-07-15)
+
+- `Project1.exe --samples 5 --orders 10 --data-dir <tmp>`: `samples.json`에
+  5건, `orders.json`에 10건이 생성됨을 확인(Yield 0 초과 1 이하,
+  AvgProductionTime 양수, SampleId 참조 무결성 확인).
+- 동일 디렉토리에 `--samples 2 --orders 3`을 다시 실행 → 기존 7/13건 유지,
+  ID가 이어서 채번됨(`S-006`, `S-007`, `ORD-...-0011~0013`)을 확인(append
+  기본 동작 검증).
+- `--clear --samples 1 --orders 1` 실행 → 기존 데이터가 사라지고 각각 1건씩
+  (`S-001`, `ORD-...-0001`)만 남음을 확인.
+- `--samples -1` (잘못된 인자) 실행 → 종료코드 1, 에러 메시지 출력, 파일
+  변경 없음을 확인.
+- 인자 없이 실행 → 기본값(`samples=5`, `orders=5`, `data-dir=data`)으로
+  append 동작함을 확인.
+
+### CLAUDE.md 목표 대비 최종 점검
+
+- 도메인 제약을 지키는 더미 데이터 생성: Phase 1~2의 property-based
+  테스트(Yield∈(0,1], AvgProductionTime>0, SampleId 참조 무결성, 상태별
+  CreatedAt 규칙)로 검증됨.
+- 실제 파일 반영(append 기본, clear는 옵션): Phase 4/5 통합 테스트 +
+  수동 스모크 테스트로 검증됨.
+- ID 채번(충돌 방지, 기존 데이터 유무 모두): Phase 3 테스트로 검증됨.
+- 콘솔 CLI 실행: Phase 5에서 `main.cpp`(View 계층) + `CliParser`(순수 함수)
+  분리로 구현, 실행 파일로 스모크 테스트 완료.
+- 이 PoC는 목표를 충족했다고 판단하며 완료 상태로 종료한다.
