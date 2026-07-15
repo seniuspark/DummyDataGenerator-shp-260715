@@ -79,6 +79,7 @@
     <ClCompile Include="IdAllocatorTest.cpp" />
     <ClCompile Include="DummyDataAppenderTest.cpp" />
     <ClCompile Include="JsonIoTest.cpp" />
+    <ClCompile Include="CliParserTest.cpp" />
     <ClCompile Include="..\Project1\SampleGenerator.cpp">
       <ObjectFileName>$(IntDir)Project1_SampleGenerator.obj</ObjectFileName>
     </ClCompile>
@@ -96,6 +97,9 @@
     </ClCompile>
     <ClCompile Include="..\Project1\DummyDataAppender.cpp">
       <ObjectFileName>$(IntDir)Project1_DummyDataAppender.obj</ObjectFileName>
+    </ClCompile>
+    <ClCompile Include="..\Project1\CliParser.cpp">
+      <ObjectFileName>$(IntDir)Project1_CliParser.obj</ObjectFileName>
     </ClCompile>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

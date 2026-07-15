@@ -151,6 +151,7 @@
     <ClCompile Include="IdAllocator.cpp" />
     <ClCompile Include="JsonIo.cpp" />
     <ClCompile Include="DummyDataAppender.cpp" />
+    <ClCompile Include="CliParser.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="DummySample.h" />
@@ -161,6 +162,8 @@
     <ClInclude Include="IdAllocator.h" />
     <ClInclude Include="JsonIo.h" />
     <ClInclude Include="DummyDataAppender.h" />
+    <ClInclude Include="CliOptions.h" />
+    <ClInclude Include="CliParser.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
