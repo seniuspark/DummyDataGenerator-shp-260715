@@ -2,16 +2,14 @@
 
 [← Plan.md](./Plan.md) · 선행: [Phase 0](./phase0-schema-assumption.md), [Phase 3](./phase3-id-allocation.md)
 
-## 착수 전 확인 사항 (필수)
+## 착수 전 확인 사항 (완료, 기록용)
 
-이 phase를 시작하기 전에 `Json/docs/Plan.md`(및 관련 확정 스키마 문서)가
-작성되었는지 다시 확인한다.
-
-- 확정되었다면: `Json/`이 정한 실제 필드명/파일 경로/날짜 포맷으로
-  [`phase0-schema-assumption.md`](./phase0-schema-assumption.md)를 갱신하고
-  이 phase를 진행한다.
-- 여전히 미확정이라면: Phase 0의 가정 스키마로 진행하되, 커밋 메시지와 이
-  문서 하단의 "가정 스키마로 진행함" 메모에 그 사실을 남긴다.
+이 phase 착수 시점(2026-07-15)에 Json 저장소가 확정한 스키마와 Phase 0의
+가정 스키마([`phase0-schema-assumption.md`](./phase0-schema-assumption.md))를
+사람이 직접 대조한 결과 일치함을 확인했다(자세한 내용은 이 문서 하단의
+"가정 스키마로 진행함" 메모 참고). 이후 통합 시점에 Json 저장소의 스키마가
+달라졌다면, 통합 담당자가 두 저장소의 문서를 사람이 직접 비교해
+`phase0-schema-assumption.md`와 이 phase의 구현을 함께 갱신한다.
 
 ## 목표
 
